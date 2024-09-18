@@ -22,6 +22,23 @@ ethServerAPI::ethServerAPI(EthernetClient &_client) : ServerAPI(_client)
     LOG_INFO("Incoming ethernet connection\n");
 }
 
-ethServerPort::ethServerPort(int port) : APIServerPort(port) {}
+ethServerPort::ethServerPort(int port) : APIServerPort(port), port(port)
+{
+    // Constructor implementation
+}
+
+void ethServerPort::init()
+{
+    // Implementation of the init function
+    // Initialize the Ethernet server here
+    begin();
+}
+
+void ethServerPort::begin(uint16_t port)
+{
+    // Implementation of the begin function
+    // Initialize the Ethernet server with the specified port
+    EthernetServer::begin();
+}
 
 #endif

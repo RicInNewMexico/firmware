@@ -18,8 +18,13 @@ class ethServerAPI : public ServerAPI<EthernetClient>
  */
 class ethServerPort : public APIServerPort<ethServerAPI, EthernetServer>
 {
+  private:
+    int port;
+
   public:
     explicit ethServerPort(int port);
+    void init();
+    void begin(uint16_t port = 0) override; // Implement the pure virtual function
 };
 
 void initApiServer(int port = 4403);
